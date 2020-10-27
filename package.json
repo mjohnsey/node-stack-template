@@ -1,0 +1,65 @@
+{
+  "name": "node-stack-template",
+  "version": "0.0.0",
+  "author": "Michael Johnsey @mjohnsey",
+  "bin": {
+    "node-stack-template": "./bin/run"
+  },
+  "bugs": "https://github.com/mjohnsey/node-stack-template/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "@overnightjs/core": "^1.7.5",
+    "@overnightjs/logger": "^1.2.0",
+    "express": "^4.17.1",
+    "express-list-endpoints": "^5.0.0",
+    "http-status-codes": "^2.1.4",
+    "toml": "^3.0.0",
+    "tslib": "^1",
+    "uuid": "^8.3.1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@types/express": "^4.17.8",
+    "@types/node": "^10",
+    "@types/uuid": "^8.3.0",
+    "eslint": "^5.13",
+    "eslint-config-oclif": "^3.1",
+    "eslint-config-oclif-typescript": "^0.1",
+    "globby": "^10",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "homepage": "https://github.com/mjohnsey/node-stack-template",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "commands": "./lib/commands",
+    "bin": "node-stack-template",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "repository": "mjohnsey/node-stack-template",
+  "scripts": {
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "eslint . --ext .ts --config .eslintrc",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
